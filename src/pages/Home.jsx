@@ -260,6 +260,7 @@ export function Home() {
         <div className="quote-testimonials-header">
           <span>Testimonials</span>
           <h2 id="quote-testimonials-title">Clearer preparation, stronger career signals.</h2>
+          <a href="#testimonials">View more stories</a>
         </div>
 
         <div className="quote-grid">

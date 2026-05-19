@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Member A avatar</title>
+  <desc id="desc">Demo member portrait placeholder.</desc>
+  <rect width="160" height="160" rx="24" fill="#08111d"/>
+  <circle cx="126" cy="28" r="34" fill="#00e5c3" opacity=".16"/>
+  <circle cx="42" cy="132" r="48" fill="#00e5c3" opacity=".08"/>
+  <circle cx="80" cy="62" r="28" fill="#d9fff8"/>
+  <path fill="#00e5c3" d="M32 150c5-35 24-54 48-54s43 19 48 54H32Z"/>
+  <path fill="#0d1828" opacity=".7" d="M53 54c7-16 23-25 43-15 15 7 21 19 17 34-18-5-38-8-60-19Z"/>
+  <text x="80" y="143" text-anchor="middle" font-family="monospace" font-size="18" font-weight="700" fill="#08111d">A</text>
+</svg>

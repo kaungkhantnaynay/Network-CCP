@@ -23,17 +23,23 @@ export function Footer() {
       links: [
         { label: 'Home', href: '#top' },
         { label: 'About us', href: '#about' },
+        { label: 'Testimonials', href: '#testimonials' },
         { label: 'Contact us', href: '#contact' },
-        { label: 'Portfolio Demo', href: '#top' },
       ],
     },
+  ]
+  const socialLinks = [
+    { label: 'Facebook', href: 'https://facebook.com/networkccp' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/network-ccp' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@networkccp' },
+    { label: 'Telegram', href: 'https://t.me/networkccp' },
   ]
 
   return (
     <footer className="site-footer" aria-label="Site footer">
       <div className="footer-surface">
         <div className="footer-brand-panel">
-          <a className="footer-brand" href="#home" aria-label="Network CCP home">
+          <a className="footer-brand" href="#top" aria-label="Network CCP home">
             <span className="footer-mark" aria-hidden="true">
               <span />
               <span />
@@ -52,6 +58,13 @@ export function Footer() {
             <span />
             Frontend demo environment
           </div>
+          <nav className="footer-socials" aria-label="Social media links">
+            {socialLinks.map((link) => (
+              <a href={link.href} key={link.label} rel="noreferrer" target="_blank">
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
         <div className="footer-links-grid">

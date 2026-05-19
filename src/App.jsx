@@ -4,10 +4,20 @@ import { Footer } from './components/layout/Footer'
 import { TopologyCanvas } from './components/shared/TopologyCanvas'
 import { Home } from './pages/Home'
 import { Programs } from './pages/Programs'
+import { About } from './pages/About'
+import { Testimonials } from './pages/Testimonials'
 
 const getCurrentPage = () => {
   if (window.location.hash === '#programs' || window.location.hash === '#programs-page') {
     return 'programs'
+  }
+
+  if (window.location.hash === '#about' || window.location.hash === '#about-page') {
+    return 'about'
+  }
+
+  if (window.location.hash === '#testimonials' || window.location.hash === '#testimonials-page') {
+    return 'testimonials'
   }
 
   return 'home'
@@ -33,7 +43,10 @@ const App = () => {
       <TopologyCanvas />
       <span id="top" className="page-top" aria-hidden="true" />
       <Navbar />
-      {currentPage === 'programs' ? <Programs /> : <Home />}
+      {currentPage === 'programs' && <Programs />}
+      {currentPage === 'about' && <About />}
+      {currentPage === 'testimonials' && <Testimonials />}
+      {currentPage === 'home' && <Home />}
       <Footer />
     </div>
   )

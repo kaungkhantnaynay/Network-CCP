@@ -18,6 +18,8 @@
 ## Phase 3: Core Product Sections
 
 - [x] Build the program overview and member career planning section.
+- [x] Build the dedicated About page with mission, history, values, team, and cohort CTA.
+- [x] Build the dedicated Testimonials page with filtered member stories and CTA.
 - [x] Build resume support panels for key point analysis, resume review, and full resume enhancement.
 - [x] Build job portal application strategy cards with practical tips and tricks.
 - [x] Build the Interview English Masterclass section.
@@ -32,6 +34,8 @@
 - [ ] Add featured weekly session state.
 - [ ] Add resume service tier selection or comparison state.
 - [x] Make Programs page filter chips update visible program tracks and counts.
+- [x] Make Testimonials page filter chips update visible member stories and counts.
+- [x] Add mobile hamburger menu state for the primary navbar.
 - [ ] Add application strategy category filtering or highlighted strategy state.
 - [ ] Make all controls keyboard accessible and visibly focused.
 
@@ -49,11 +53,12 @@
 - [x] Run `npm run lint`.
 - [x] Run `npm run build`.
 - [x] Update navbar Services link to Programs page route.
+- [x] Wire About page into the app navigation route.
 - [x] Run the Vite dev server with `npm run dev`.
 - [x] Verify the app loads locally.
 - [ ] Verify all required Network CCP features are visible.
-- [ ] Verify the project still has no backend, login, database, upload, payment, or persistence requirements.
-- [ ] Update this checklist with completed work.
+- [x] Verify the project still has no backend, login, database, upload, payment, or persistence requirements.
+- [x] Update this checklist with completed work.
 
 ## Acceptance Criteria
 
