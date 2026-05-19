@@ -1,0 +1,114 @@
+[
+  {
+    "id": "career-planning",
+    "title": "Member Career Planning",
+    "category": "Career Strategy",
+    "track": "career",
+    "summary": "Map target roles, gaps, milestones, and weekly actions for a realistic network career path.",
+    "outcome": "Clear role roadmap"
+  },
+  {
+    "id": "resume-key-analysis",
+    "title": "Resume Key Point Analysis",
+    "category": "Resume",
+    "track": "career",
+    "summary": "Identify missing achievements, weak technical signals, and role-specific keywords.",
+    "outcome": "Sharper resume positioning"
+  },
+  {
+    "id": "resume-review",
+    "title": "Resume Review",
+    "category": "Resume",
+    "track": "career",
+    "summary": "Review structure, clarity, ATS readability, technical depth, and recruiter scan quality.",
+    "outcome": "Cleaner application profile"
+  },
+  {
+    "id": "resume-enhancement",
+    "title": "Full Resume Enhancement",
+    "category": "Resume",
+    "track": "career",
+    "summary": "Rebuild the resume story around impact, technologies, projects, and measurable ownership.",
+    "outcome": "Interview-ready resume"
+  },
+  {
+    "id": "job-portal-strategy",
+    "title": "Job Portal Application Strategy",
+    "category": "Applications",
+    "track": "career",
+    "summary": "Use smarter search patterns, timing, filters, referral signals, and tracking routines.",
+    "outcome": "Higher quality applications"
+  },
+  {
+    "id": "interview-english",
+    "title": "Interview English Masterclass",
+    "category": "Interview",
+    "track": "interview",
+    "summary": "Practice concise answers, professional phrasing, confidence, and technical storytelling.",
+    "outcome": "Stronger spoken responses"
+  },
+  {
+    "id": "technical-interview",
+    "title": "Technical Interview Preparation",
+    "category": "Interview",
+    "track": "interview",
+    "summary": "Prepare for scenario questions, troubleshooting flows, architecture discussions, and labs.",
+    "outcome": "Structured technical answers"
+  },
+  {
+    "id": "weekly-theory",
+    "title": "Weekly Theory Sessions",
+    "category": "Training",
+    "track": "technical",
+    "summary": "Reinforce networking, security, firewall, and operations concepts with guided weekly sessions.",
+    "outcome": "Consistent knowledge growth"
+  },
+  {
+    "id": "ccna",
+    "title": "CCNA Coverage",
+    "category": "Networking",
+    "track": "technical",
+    "summary": "Build routing, switching, subnetting, VLAN, wireless, and troubleshooting fundamentals.",
+    "outcome": "Network foundation"
+  },
+  {
+    "id": "ccnp",
+    "title": "CCNP Coverage",
+    "category": "Networking",
+    "track": "technical",
+    "summary": "Develop deeper enterprise networking, routing design, services, and operations readiness.",
+    "outcome": "Enterprise readiness"
+  },
+  {
+    "id": "ccie",
+    "title": "CCIE Readiness",
+    "category": "Networking",
+    "track": "technical",
+    "summary": "Strengthen advanced design thinking, complex scenarios, diagnostics, and expert-level habits.",
+    "outcome": "Expert preparation"
+  },
+  {
+    "id": "firewall-lab",
+    "title": "Firewall Theory & Lab",
+    "category": "Security",
+    "track": "technical",
+    "summary": "Practice policies, NAT, VPN, segmentation, logging, and vendor-focused firewall workflows.",
+    "outcome": "Hands-on security skill"
+  },
+  {
+    "id": "cybersecurity",
+    "title": "Cybersecurity Theory",
+    "category": "Security",
+    "track": "technical",
+    "summary": "Understand threats, controls, incident thinking, monitoring, and defensive security basics.",
+    "outcome": "Security mindset"
+  },
+  {
+    "id": "it-project-management",
+    "title": "IT Project Management",
+    "category": "Leadership",
+    "track": "technical",
+    "summary": "Learn scope, stakeholder updates, delivery rhythm, documentation, and operational planning.",
+    "outcome": "Delivery confidence"
+  }
+]
