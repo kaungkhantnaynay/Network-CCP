@@ -700,7 +700,7 @@ export function About() {
         </div>
       </section>
 
-      {/* ── CTA Banner ──────────────────────────────────────────────────────── */}
+      {/* ── Program Quote ───────────────────────────────────────────────────── */}
       <section style={{ padding: "0 1.5rem 5rem" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div
@@ -709,11 +709,6 @@ export function About() {
               border: "1px solid rgba(0,229,195,0.18)",
               borderRadius: "8px",
               padding: "3rem 2.5rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: "2rem",
-              flexWrap: "wrap",
               position: "relative",
               overflow: "hidden",
             }}
@@ -733,7 +728,7 @@ export function About() {
               }}
             />
 
-            <div>
+            <div style={{ position: "relative", maxWidth: "760px" }}>
               <div
                 style={{
                   fontFamily: "'DM Mono', monospace",
@@ -744,27 +739,22 @@ export function About() {
                   marginBottom: "0.6rem",
                 }}
               >
-                ◈ Ready to start
+                ◈ Program principle
               </div>
-              <h3
+              <blockquote
                 style={{
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 700,
-                  fontSize: "clamp(1.1rem, 3vw, 1.6rem)",
+                  fontSize: "clamp(1.15rem, 3vw, 1.75rem)",
+                  lineHeight: 1.35,
                   color: "#e2eaf5",
-                  margin: "0 0 0.5rem",
+                  margin: "0",
                 }}
               >
-                Join the next Network CCP cohort
-              </h3>
-              <p style={{ color: "#7a8fa8", fontSize: "0.9rem", margin: 0 }}>
-                Applications open quarterly. Spots are limited to maintain cohort quality.
-              </p>
-            </div>
-
-            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-              <a className="cta-btn" href="#contact">Apply Now →</a>
-              <a className="cta-btn cta-btn-ghost" href="#programs">Learn More</a>
+                "Network CCP is not only about passing exams; it is about building
+                the clarity, confidence, and lab discipline to speak like the
+                engineer you are becoming."
+              </blockquote>
             </div>
           </div>
         </div>

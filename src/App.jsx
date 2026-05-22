@@ -6,6 +6,7 @@ import { Home } from './pages/Home'
 import { Programs } from './pages/Programs'
 import { About } from './pages/About'
 import { Testimonials } from './pages/Testimonials'
+import { Contact } from './pages/Contact'
 
 const getCurrentPage = () => {
   if (window.location.hash === '#programs' || window.location.hash === '#programs-page') {
@@ -18,6 +19,10 @@ const getCurrentPage = () => {
 
   if (window.location.hash === '#testimonials' || window.location.hash === '#testimonials-page') {
     return 'testimonials'
+  }
+
+  if (window.location.hash === '#contact' || window.location.hash === '#contact-page') {
+    return 'contact'
   }
 
   return 'home'
@@ -38,6 +43,12 @@ const App = () => {
     }
   }, [])
 
+  useEffect(() => {
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    })
+  }, [currentPage])
+
   return (
     <div className="app-shell">
       <TopologyCanvas />
@@ -46,6 +57,7 @@ const App = () => {
       {currentPage === 'programs' && <Programs />}
       {currentPage === 'about' && <About />}
       {currentPage === 'testimonials' && <Testimonials />}
+      {currentPage === 'contact' && <Contact />}
       {currentPage === 'home' && <Home />}
       <Footer />
     </div>

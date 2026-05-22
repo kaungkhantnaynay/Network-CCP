@@ -1202,33 +1202,6 @@ a {
   line-height: 1.7;
 }
 
-.testimonials-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-bottom: 1px solid rgba(0, 229, 195, 0.16);
-}
-
-.testimonials-stats div {
-  display: grid;
-  gap: 0.25rem;
-  min-height: 6.5rem;
-  padding: 1.15rem 1rem;
-  border-right: 1px solid rgba(0, 229, 195, 0.12);
-}
-
-.testimonials-stats div:last-child {
-  border-right: 0;
-}
-
-.testimonials-stats strong {
-  color: var(--color-teal);
-  font-family: "DM Mono", monospace;
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
-  font-weight: 700;
-  line-height: 1;
-}
-
-.testimonials-stats span,
 .testimonials-filter-bar > span,
 .testimonials-filter-bar > strong,
 .testimonials-card header span,
@@ -1237,12 +1210,6 @@ a {
 .testimonials-cta span {
   font-family: "DM Mono", monospace;
   text-transform: uppercase;
-}
-
-.testimonials-stats span {
-  color: #55718d;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
 }
 
 .testimonials-filter-bar {
@@ -1435,6 +1402,261 @@ a {
   opacity: 0.86;
   outline: none;
   transform: translateY(-1px);
+}
+
+.contact-page {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 2.5rem 0 5rem;
+}
+
+.contact-page-header {
+  padding: 2rem 0 1.75rem;
+  border-bottom: 1px solid rgba(0, 229, 195, 0.16);
+}
+
+.contact-page-header h1 {
+  max-width: 40rem;
+  margin: 0;
+  color: #f8fbff;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  font-weight: 700;
+  line-height: 0.98;
+}
+
+.contact-page-header h1 span {
+  color: var(--color-teal);
+}
+
+.contact-page-header p {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: #afbfce;
+  line-height: 1.7;
+}
+
+.contact-primary-panel > span,
+.contact-checklist > span,
+.contact-option-card > span,
+.contact-option-card strong,
+.contact-cta span {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.85fr);
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+.contact-primary-panel,
+.contact-checklist,
+.contact-option-card {
+  border: 1px solid rgba(0, 229, 195, 0.14);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(13, 24, 40, 0.9), rgba(8, 13, 20, 0.76)),
+    rgba(13, 24, 40, 0.78);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.2);
+}
+
+.contact-primary-panel {
+  display: flex;
+  min-height: 20rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  background:
+    linear-gradient(135deg, rgba(0, 229, 195, 0.1), transparent 36%),
+    linear-gradient(145deg, rgba(13, 24, 40, 0.92), rgba(8, 13, 20, 0.78));
+}
+
+.contact-primary-panel > span,
+.contact-checklist > span,
+.contact-option-card > span,
+.contact-cta span {
+  color: var(--color-teal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.contact-primary-panel h2,
+.contact-checklist h2,
+.contact-option-card h2,
+.contact-cta h2 {
+  margin: 0.45rem 0 0;
+  color: #f8fbff;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.contact-primary-panel h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.contact-primary-panel p,
+.contact-checklist li,
+.contact-option-card p,
+.contact-cta p {
+  color: #afbfce;
+  line-height: 1.65;
+}
+
+.contact-primary-panel p {
+  max-width: 42rem;
+  margin: 0.9rem 0 1.25rem;
+}
+
+.contact-primary-panel a,
+.contact-cta a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  border: 1px solid rgba(0, 229, 195, 0.24);
+  border-radius: 6px;
+  color: #06120f;
+  background: var(--color-teal);
+  font-weight: 700;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.contact-primary-panel a:hover,
+.contact-primary-panel a:focus-visible,
+.contact-cta a:hover,
+.contact-cta a:focus-visible {
+  opacity: 0.86;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.contact-socials a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 0.85rem;
+  border: 1px solid rgba(0, 229, 195, 0.18);
+  border-radius: 6px;
+  color: #d9e7f4;
+  background: rgba(8, 13, 20, 0.42);
+  font-weight: 700;
+  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.contact-socials svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 1.05rem;
+  fill: currentColor;
+}
+
+.contact-socials a:hover,
+.contact-socials a:focus-visible {
+  border-color: rgba(0, 229, 195, 0.45);
+  color: var(--color-teal);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.contact-checklist {
+  padding: 1.15rem;
+}
+
+.contact-checklist h2,
+.contact-option-card h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+}
+
+.contact-checklist ul {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.contact-checklist li span {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  margin-top: 0.58rem;
+  border-radius: 999px;
+  background: var(--color-teal);
+  box-shadow: 0 0 14px rgba(0, 229, 195, 0.55);
+}
+
+.contact-option-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-option-card {
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  padding: 1.15rem;
+}
+
+.contact-option-card p {
+  margin: 0.8rem 0 1rem;
+}
+
+.contact-option-card strong {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 229, 195, 0.12);
+  color: #55718d;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.contact-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(0, 229, 195, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(0, 229, 195, 0.08), transparent 34%),
+    rgba(13, 24, 40, 0.82);
+}
+
+.contact-cta h2 {
+  max-width: 34rem;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.contact-cta p {
+  max-width: 38rem;
+  margin: 0.75rem 0 0;
 }
 
 .coaching-visual {
@@ -3212,6 +3434,10 @@ a {
     width: min(100% - 32px, 1180px);
   }
 
+  .contact-page {
+    width: min(100% - 32px, 1180px);
+  }
+
   .testimonials-filter-bar {
     flex-wrap: wrap;
   }
@@ -3226,6 +3452,16 @@ a {
   }
 
   .testimonials-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contact-layout,
+  .contact-option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-cta {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -3399,7 +3635,16 @@ a {
     padding: 1.5rem 0 3rem;
   }
 
+  .contact-page {
+    width: min(100% - 20px, 1180px);
+    padding: 1.5rem 0 3rem;
+  }
+
   .testimonials-page-header {
+    padding-top: 1.5rem;
+  }
+
+  .contact-page-header {
     padding-top: 1.5rem;
   }
 
@@ -3407,18 +3652,8 @@ a {
     font-size: 2.8rem;
   }
 
-  .testimonials-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonials-stats div {
-    min-height: auto;
-    border-right: 0;
-    border-bottom: 1px solid rgba(0, 229, 195, 0.12);
-  }
-
-  .testimonials-stats div:last-child {
-    border-bottom: 0;
+  .contact-page-header h1 {
+    font-size: 2.8rem;
   }
 
   .testimonials-card {
@@ -3435,6 +3670,21 @@ a {
   }
 
   .testimonials-cta a {
+    width: 100%;
+  }
+
+  .contact-primary-panel,
+  .contact-option-card {
+    min-height: auto;
+  }
+
+  .contact-primary-panel a,
+  .contact-cta a {
+    width: 100%;
+  }
+
+  .contact-socials,
+  .contact-socials a {
     width: 100%;
   }
 

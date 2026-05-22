@@ -1,12 +1,6 @@
 import { useState } from 'react'
 import { testimonialCategories, testimonials } from '../data/testimonials'
 
-const stats = [
-  { value: testimonials.length, label: 'Member stories' },
-  { value: 4, label: 'Focus areas' },
-  { value: 3, label: 'Career outcomes' },
-]
-
 export function Testimonials() {
   const [activeCategory, setActiveCategory] = useState('all')
 
@@ -30,15 +24,6 @@ export function Testimonials() {
           technical prep, and security training help candidates prepare for the next role.
         </p>
       </header>
-
-      <section className="testimonials-stats" aria-label="Testimonials summary">
-        {stats.map((stat) => (
-          <div key={stat.label}>
-            <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
-          </div>
-        ))}
-      </section>
 
       <div className="testimonials-filter-bar" aria-label="Testimonial filters">
         <span>Filter</span>

@@ -151,13 +151,9 @@ export function Home() {
           <div className="learner-node learner-network">
             <span>Network</span>
           </div>
-          <div className="learner-node learner-communication">
-            <span>Communication</span>
-          </div>
           <div className="connection-line line-resume" />
           <div className="connection-line line-interview" />
           <div className="connection-line line-network" />
-          <div className="connection-line line-communication" />
         </div>
 
         <div className="credential-strip" aria-label="Network CCP credentials">
