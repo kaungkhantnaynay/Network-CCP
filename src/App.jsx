@@ -53,7 +53,7 @@ const App = () => {
     <div className="app-shell">
       <TopologyCanvas />
       <span id="top" className="page-top" aria-hidden="true" />
-      <Navbar />
+      <Navbar currentPage={currentPage} />
       {currentPage === 'programs' && <Programs />}
       {currentPage === 'about' && <About />}
       {currentPage === 'testimonials' && <Testimonials />}

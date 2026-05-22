@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
-export function Navbar() {
+export function Navbar({ currentPage = 'home' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navItems = [
-    { label: 'Home', href: '#top' },
-    { label: 'Programs', href: '#programs' },
-    { label: 'About us', href: '#about' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Contact us', href: '#contact' },
+    { label: 'Home', href: '#top', page: 'home' },
+    { label: 'Programs', href: '#programs', page: 'programs' },
+    { label: 'About us', href: '#about', page: 'about' },
+    { label: 'Testimonials', href: '#testimonials', page: 'testimonials' },
+    { label: 'Contact us', href: '#contact', page: 'contact' },
   ]
 
   return (
@@ -40,14 +40,31 @@ export function Navbar() {
         </button>
 
         <div className={`navbar-links ${isMenuOpen ? 'open' : ''}`} id="primary-navigation">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setIsMenuOpen(false)}>
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = currentPage === item.page
+
+            return (
+              <a
+                key={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                className={isActive ? 'active' : undefined}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            )
+          })}
         </div>
 
-        <a className="navbar-cta" href="#contact" onClick={() => setIsMenuOpen(false)}>Start Plan</a>
+        <a
+          aria-current={currentPage === 'contact' ? 'page' : undefined}
+          className={`navbar-cta ${currentPage === 'contact' ? 'active' : ''}`}
+          href="#contact"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Start Plan
+        </a>
       </nav>
     </header>
   )
