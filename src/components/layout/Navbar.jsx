@@ -3,18 +3,26 @@ import { useState } from 'react'
 export function Navbar({ currentPage = 'home' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navItems = [
-    { label: 'Home', href: '#top', page: 'home' },
+    { label: 'Home', href: '/', page: 'home' },
     { label: 'Programs', href: '#programs', page: 'programs' },
     { label: 'About us', href: '#about', page: 'about' },
     { label: 'Testimonials', href: '#testimonials', page: 'testimonials' },
     { label: 'Contact us', href: '#contact', page: 'contact' },
   ]
 
+  const handleHomeClick = (event) => {
+    event.preventDefault()
+    setIsMenuOpen(false)
+    window.history.pushState(null, '', '/')
+    window.dispatchEvent(new Event('hashchange'))
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }
+
   return (
     <header className="site-navbar" aria-label="Site header">
       <div className="navbar-grid" aria-hidden="true" />
       <nav className="navbar-shell" aria-label="Primary navigation">
-        <a className="navbar-brand" href="#top" aria-label="Network CCP home" onClick={() => setIsMenuOpen(false)}>
+        <a className="navbar-brand" href="/" aria-label="Network CCP home" onClick={handleHomeClick}>
           <span className="brand-mark" aria-hidden="true">
             <span className="brand-node brand-node-a" />
             <span className="brand-node brand-node-b" />
@@ -49,7 +57,7 @@ export function Navbar({ currentPage = 'home' }) {
                 aria-current={isActive ? 'page' : undefined}
                 className={isActive ? 'active' : undefined}
                 href={item.href}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={item.page === 'home' ? handleHomeClick : () => setIsMenuOpen(false)}
               >
                 {item.label}
               </a>

@@ -1,8 +1,8 @@
 export function FounderPanel() {
   return (
     <section className="founder-panel" id="founder" aria-labelledby="founder-title">
-      <div className="founder-avatar" aria-hidden="true">
-        NCCP
+      <div className="founder-avatar">
+        <img src="/Network-CCP.jpeg" alt="Founder of Network CCP" />
       </div>
       <div>
         <span className="section-eyebrow">About the Founder</span>

@@ -315,55 +315,56 @@ a {
 }
 
 .founder-photo {
-  display: grid;
+  display: block;
   min-height: 20rem;
-  place-items: end start;
-  padding: 1.1rem;
   border: 1px solid rgba(0, 229, 195, 0.12);
   border-radius: 8px;
   background:
-    radial-gradient(circle at 42% 26%, rgba(0, 229, 195, 0.24), transparent 5rem),
-    linear-gradient(145deg, rgba(0, 229, 195, 0.18), transparent 38%),
-    linear-gradient(160deg, #14243a, #07101a);
+    radial-gradient(circle at 28% 18%, rgba(0, 229, 195, 0.12), transparent 7rem),
+    linear-gradient(160deg, #17212a, #07101a);
   overflow: hidden;
   position: relative;
 }
 
-.founder-photo::before {
-  position: absolute;
-  top: 3.2rem;
-  left: 50%;
-  width: 7rem;
-  height: 7rem;
-  border: 1px solid rgba(0, 229, 195, 0.2);
-  border-radius: 999px;
-  background: rgba(8, 13, 20, 0.82);
-  box-shadow: 0 0 40px rgba(0, 229, 195, 0.14);
-  content: "";
-  transform: translateX(-50%);
-}
-
 .founder-photo::after {
   position: absolute;
-  bottom: -2rem;
-  left: 50%;
-  width: 13rem;
-  height: 10rem;
-  border: 1px solid rgba(0, 229, 195, 0.18);
-  border-radius: 999px 999px 0 0;
-  background: rgba(8, 13, 20, 0.82);
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 52%, rgba(8, 13, 20, 0.78)),
+    radial-gradient(circle at 18% 12%, rgba(244, 185, 80, 0.18), transparent 8rem);
   content: "";
-  transform: translateX(-50%);
+}
+
+.founder-photo img {
+  display: block;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1);
+  transition: transform 420ms ease;
+}
+
+.founder-photo:hover img,
+.founder-photo:focus-within img {
+  transform: scale(1.07);
 }
 
 .founder-photo span {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(0, 229, 195, 0.22);
+  border-radius: 999px;
   color: var(--color-teal);
+  background: rgba(8, 13, 20, 0.82);
   font-family: "DM Mono", monospace;
-  font-size: 0.8rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .founder-summary-copy {
@@ -2881,19 +2882,51 @@ a {
 }
 
 .founder-avatar {
-  display: grid;
+  display: block;
   aspect-ratio: 1;
-  place-items: center;
   border: 1px solid rgba(0, 229, 195, 0.24);
   border-radius: 8px;
-  color: #f5f5f5;
   background:
     radial-gradient(circle at 30% 20%, rgba(0, 229, 195, 0.18), transparent 9rem),
     linear-gradient(135deg, var(--color-black), var(--color-graphite-soft));
-  font-size: 2rem;
-  font-weight: 900;
-  font-family: "DM Mono", monospace;
-  letter-spacing: 0.08em;
+  overflow: hidden;
+  position: relative;
+}
+
+.founder-avatar::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(8, 13, 20, 0.58));
+  content: "";
+}
+
+.founder-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1);
+  transition: transform 420ms ease;
+}
+
+.founder-avatar:hover img,
+.founder-avatar:focus-within img {
+  transform: scale(1.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .founder-photo img,
+  .founder-avatar img {
+    transition: none;
+  }
+
+  .founder-photo:hover img,
+  .founder-photo:focus-within img,
+  .founder-avatar:hover img,
+  .founder-avatar:focus-within img {
+    transform: none;
+  }
 }
 
 .founder-points {
@@ -3202,7 +3235,7 @@ a {
 
 .footer-links-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.8rem;
 }
 
@@ -3244,6 +3277,13 @@ a {
   color: var(--color-teal);
   outline: none;
   transform: translateX(2px);
+}
+
+.footer-policy-note {
+  margin: 0;
+  color: #a8a8a8;
+  font-size: 0.86rem;
+  line-height: 1.6;
 }
 
 .footer-bottom {
@@ -3325,6 +3365,10 @@ a {
 
   .founder-photo {
     min-height: 18rem;
+  }
+
+  .founder-photo img {
+    height: 18rem;
   }
 
   .region-coverage {
@@ -3528,13 +3572,7 @@ a {
   }
 
   .footer-links-grid {
-    grid-template-columns: repeat(3, minmax(12rem, 1fr));
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .footer-links-grid::-webkit-scrollbar {
-    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -3722,6 +3760,10 @@ a {
 
   .founder-photo {
     min-height: 15rem;
+  }
+
+  .founder-photo img {
+    height: 15rem;
   }
 
   .coaching-visual {
@@ -3914,12 +3956,45 @@ a {
   }
 
   .footer-surface {
+    gap: 0.75rem;
     padding: 0.65rem;
   }
 
   .footer-brand-panel,
   .footer-link-group {
     padding: 0.9rem;
+  }
+
+  .footer-brand {
+    align-items: flex-start;
+  }
+
+  .footer-brand-kicker {
+    max-width: 14rem;
+  }
+
+  .footer-brand-panel p {
+    margin: 0.9rem 0 1rem;
+    font-size: 0.86rem;
+  }
+
+  .footer-status {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .footer-link-group {
+    min-height: auto;
+  }
+
+  .footer-link-group ul {
+    gap: 0.48rem;
   }
 
   .footer-socials a {
@@ -3930,6 +4005,7 @@ a {
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
+    gap: 0.4rem;
     font-size: 0.76rem;
   }
 }

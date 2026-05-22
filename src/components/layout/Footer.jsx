@@ -1,4 +1,11 @@
 export function Footer() {
+  const handleHomeClick = (event) => {
+    event.preventDefault()
+    window.history.pushState(null, '', '/')
+    window.dispatchEvent(new Event('hashchange'))
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }
+
   const footerGroups = [
     {
       title: 'Program',
@@ -21,11 +28,15 @@ export function Footer() {
     {
       title: 'Company',
       links: [
-        { label: 'Home', href: '#top' },
+        { label: 'Home', href: '/', page: 'home' },
         { label: 'About us', href: '#about' },
         { label: 'Testimonials', href: '#testimonials' },
         { label: 'Contact us', href: '#contact' },
       ],
+    },
+    {
+      title: 'Legal',
+      note: 'Privacy Policy: this static demo does not collect account data, payments, uploads, or member records.',
     },
   ]
   const socialLinks = [
@@ -39,7 +50,7 @@ export function Footer() {
     <footer className="site-footer" aria-label="Site footer">
       <div className="footer-surface">
         <div className="footer-brand-panel">
-          <a className="footer-brand" href="#top" aria-label="Network CCP home">
+          <a className="footer-brand" href="/" aria-label="Network CCP home" onClick={handleHomeClick}>
             <span className="footer-mark" aria-hidden="true">
               <span />
               <span />
@@ -71,13 +82,19 @@ export function Footer() {
           {footerGroups.map((group) => (
             <div className="footer-link-group" key={group.title}>
               <h2>{group.title}</h2>
-              <ul>
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
-                  </li>
-                ))}
-              </ul>
+              {group.note ? (
+                <p className="footer-policy-note">{group.note}</p>
+              ) : (
+                <ul>
+                  {group.links.map((link) => (
+                    <li key={link.label}>
+                      <a href={link.href} onClick={link.page === 'home' ? handleHomeClick : undefined}>
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
@@ -85,7 +102,7 @@ export function Footer() {
 
       <div className="footer-bottom">
         <span>© 2026 Network CCP. Portfolio demo.</span>
-        <span>Premium dark UI · Static frontend</span>
+        <span>Privacy-first static frontend · No account data collected</span>
       </div>
     </footer>
   )

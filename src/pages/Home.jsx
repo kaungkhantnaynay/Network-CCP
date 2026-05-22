@@ -202,8 +202,9 @@ export function Home() {
 
       <section className="founder-summary" id="about" aria-labelledby="founder-summary-title">
         <div className="founder-photo-card">
-          <div className="founder-photo" role="img" aria-label="Founder portrait placeholder">
-            <span>NCCP</span>
+          <div className="founder-photo">
+            <img src="/Network-CCP.jpeg" alt="Founder of Network CCP" />
+            <span>Founder</span>
           </div>
         </div>
         <div className="founder-summary-copy">
