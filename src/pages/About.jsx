@@ -100,6 +100,33 @@ const TEAM = [
   },
 ];
 
+const DIFFERENTIATORS = [
+  {
+    title: "Structured career planning from day one",
+    detail: "Members map target roles, certification priorities, resume gaps, and weekly application actions before training begins.",
+  },
+  {
+    title: "Resume analysis with real recruiter feedback",
+    detail: "We rewrite profile signals around measurable projects, vendor skills, and hiring keywords instead of generic resume language.",
+  },
+  {
+    title: "Interview English coached by practitioners",
+    detail: "Practice focuses on explaining outages, designs, troubleshooting steps, and career stories clearly under interview pressure.",
+  },
+  {
+    title: "Lab-first certification tracks (CCNA → CCIE)",
+    detail: "Theory is paired with topology practice, scenario drills, and review loops that mirror real infrastructure work.",
+  },
+  {
+    title: "Advanced Security & Firewall specializations",
+    detail: "Security tracks connect firewall policy, VPN, services, and cyber theory to enterprise and MSP hiring needs.",
+  },
+  {
+    title: "Weekly cohort sessions with peer accountability",
+    detail: "Cohorts keep progress visible through session targets, peer review, and shared checkpoints.",
+  },
+];
+
 // ─── Animated Counter ─────────────────────────────────────────────────────────
 
 function AnimatedCounter({ target, suffix, active }) {
@@ -184,6 +211,7 @@ export function About() {
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef(null);
   const [activeYear, setActiveYear] = useState("2024");
+  const [openDifferentiator, setOpenDifferentiator] = useState(DIFFERENTIATORS[0].title);
 
   // Intersection observer for stats counter
   useEffect(() => {
@@ -254,6 +282,92 @@ export function About() {
         }
         .team-card:hover {
           border-color: rgba(0,229,195,0.2);
+        }
+
+        .differentiator-list {
+          display: grid;
+          gap: 0.65rem;
+        }
+
+        .differentiator-item {
+          border: 1px solid rgba(0,229,195,0.1);
+          border-radius: 8px;
+          background: rgba(8,13,20,0.34);
+          overflow: hidden;
+          transition: border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .differentiator-item.open {
+          border-color: rgba(0,229,195,0.24);
+          background: rgba(0,229,195,0.055);
+        }
+
+        .differentiator-trigger {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.85rem;
+          padding: 0.8rem 0.9rem;
+          border: 0;
+          color: #b0c4d8;
+          background: transparent;
+          cursor: pointer;
+          font: inherit;
+          font-size: 0.88rem;
+          line-height: 1.5;
+          text-align: left;
+        }
+
+        .differentiator-trigger:focus-visible {
+          outline: 2px solid rgba(0,229,195,0.45);
+          outline-offset: -2px;
+        }
+
+        .differentiator-title {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.65rem;
+        }
+
+        .differentiator-icon {
+          color: #00e5c3;
+          font-family: monospace;
+          margin-top: 1px;
+          flex-shrink: 0;
+        }
+
+        .differentiator-chevron {
+          color: #00e5c3;
+          font-family: 'DM Mono', monospace;
+          transition: transform 0.25s ease;
+        }
+
+        .differentiator-item.open .differentiator-chevron {
+          transform: rotate(180deg);
+        }
+
+        .differentiator-panel {
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: grid-template-rows 0.3s ease;
+        }
+
+        .differentiator-item.open .differentiator-panel {
+          grid-template-rows: 1fr;
+        }
+
+        .differentiator-panel-inner {
+          min-height: 0;
+          overflow: hidden;
+        }
+
+        .differentiator-panel p {
+          margin: 0;
+          padding: 0 0.9rem 0.85rem 2.35rem;
+          color: #7a8fa8;
+          font-size: 0.82rem;
+          line-height: 1.65;
         }
 
         .cta-btn {
@@ -461,30 +575,45 @@ export function About() {
               >
                 ◈ What sets us apart
               </div>
-              {[
-                "Structured career planning from day one",
-                "Resume analysis with real recruiter feedback",
-                "Interview English coached by practitioners",
-                "Lab-first certification tracks (CCNA → CCIE)",
-                "Advanced Security & Firewall specializations",
-                "Weekly cohort sessions with peer accountability",
-              ].map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.65rem",
-                    marginBottom: "0.75rem",
-                    fontSize: "0.88rem",
-                    color: "#b0c4d8",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  <span style={{ color: "#00e5c3", fontFamily: "monospace", marginTop: "1px", flexShrink: 0 }}>▸</span>
-                  {item}
-                </div>
-              ))}
+              <div className="differentiator-list">
+                {DIFFERENTIATORS.map((item) => {
+                  const isOpen = openDifferentiator === item.title;
+
+                  return (
+                    <div
+                      className={`differentiator-item ${isOpen ? "open" : ""}`}
+                      key={item.title}
+                    >
+                      <button
+                        aria-expanded={isOpen}
+                        className="differentiator-trigger"
+                        onClick={() =>
+                          setOpenDifferentiator((current) =>
+                            current === item.title ? "" : item.title
+                          )
+                        }
+                        type="button"
+                      >
+                        <span className="differentiator-title">
+                          <span className="differentiator-icon">▸</span>
+                          {item.title}
+                        </span>
+                        <span
+                          className="differentiator-chevron"
+                          aria-hidden="true"
+                        >
+                          ↓
+                        </span>
+                      </button>
+                      <div className="differentiator-panel">
+                        <div className="differentiator-panel-inner">
+                          <p>{item.detail}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

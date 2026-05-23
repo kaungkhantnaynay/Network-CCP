@@ -149,6 +149,25 @@ const totalPrograms = programTracks.reduce((count, track) => count + track.progr
 
 const getTrackAnchor = (label) => label.toLowerCase().replaceAll(' ', '-').replaceAll('&', 'and')
 
+const weeklySessions = [
+  {
+    title: 'Theory Review',
+    meta: 'Weekly live',
+    description: 'Networking, firewall, security, and operations concepts reinforced with guided Q&A.',
+  },
+  {
+    title: 'Career Checkpoint',
+    meta: 'Weekly live',
+    description: 'Resume, application strategy, and interview preparation progress reviewed with the cohort.',
+  },
+  {
+    title: 'Webinar',
+    meta: 'Coming soon',
+    description: 'Guest-led topic sessions for market updates, hiring signals, and practical network career lessons.',
+    comingSoon: true,
+  },
+]
+
 export function Programs() {
   const [activeFilter, setActiveFilter] = useState('all')
 
@@ -256,7 +275,15 @@ export function Programs() {
                 and career preparation checkpoints.
               </p>
             </div>
-            <a href="#contact">View Schedule</a>
+            <div className="weekly-session-grid" aria-label="Weekly session types">
+              {weeklySessions.map((session) => (
+                <article className={`weekly-session-card ${session.comingSoon ? 'coming-soon' : ''}`} key={session.title}>
+                  <span>{session.meta}</span>
+                  <h3>{session.title}</h3>
+                  <p>{session.description}</p>
+                </article>
+              ))}
+            </div>
           </section>
         </section>
       </div>

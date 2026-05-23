@@ -7,6 +7,7 @@ gsap.registerPlugin(SplitText)
 export function Home() {
   const regionRef = useRef(null)
   const regionSplitTweenRef = useRef(null)
+  const regionCardsTweenRef = useRef(null)
 
   const primaryPrograms = [
     {
@@ -81,7 +82,21 @@ export function Home() {
 
     let splitInstance
     let isActive = true
+    let hasEntered = false
     const splitTargets = region.querySelectorAll('.region-mask-text')
+    const regionCards = region.querySelectorAll('.region-card')
+
+    const playRegionReveal = () => {
+      hasEntered = true
+      regionSplitTweenRef.current?.timeScale(1).play(0)
+      regionCardsTweenRef.current?.timeScale(1).play(0)
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.set(splitTargets, { opacity: 1 })
+      gsap.set(regionCards, { clearProps: 'all' })
+      return undefined
+    }
 
     const createRegionSplit = () => {
       if (!isActive) {
@@ -89,6 +104,19 @@ export function Home() {
       }
 
       gsap.set(splitTargets, { opacity: 1 })
+      regionCardsTweenRef.current = gsap.fromTo(
+        regionCards,
+        { autoAlpha: 0, y: 28, scale: 0.98 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.08,
+          ease: 'expo.out',
+          paused: true,
+        },
+      )
 
       splitInstance = SplitText.create(splitTargets, {
         type: 'words,lines',
@@ -98,30 +126,56 @@ export function Home() {
         onSplit: (self) => {
           regionSplitTweenRef.current?.kill()
           regionSplitTweenRef.current = gsap.from(self.lines, {
-            duration: 0.6,
-            yPercent: 100,
+            duration: 0.72,
+            yPercent: 115,
             opacity: 0,
-            stagger: 0.08,
+            stagger: 0.055,
             ease: 'expo.out',
+            paused: true,
           })
+
+          if (hasEntered) {
+            regionSplitTweenRef.current.play(0)
+          }
 
           return regionSplitTweenRef.current
         },
       })
+
+      if (hasEntered) {
+        regionCardsTweenRef.current?.play(0)
+      }
     }
 
     const fontsReady = document.fonts?.ready ?? Promise.resolve()
     fontsReady.then(createRegionSplit)
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          return
+        }
+
+        playRegionReveal()
+        observer.disconnect()
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.35 },
+    )
+
+    observer.observe(region)
+
     return () => {
       isActive = false
+      observer.disconnect()
       regionSplitTweenRef.current?.kill()
+      regionCardsTweenRef.current?.kill()
       splitInstance?.revert()
     }
   }, [])
 
   const replayCountryReveal = () => {
-    regionSplitTweenRef.current?.timeScale(0.2).play(0)
+    regionSplitTweenRef.current?.timeScale(1).play(0)
+    regionCardsTweenRef.current?.timeScale(1).play(0)
   }
 
   return (
@@ -260,16 +314,22 @@ export function Home() {
           <a href="#testimonials">View more stories</a>
         </div>
 
-        <div className="quote-grid">
-          {testimonials.map((testimonial) => (
-            <article className="quote-card" key={testimonial.name}>
-              <p>“{testimonial.quote}”</p>
-              <footer>
-                <strong>{testimonial.name}</strong>
-                <span>{testimonial.role}</span>
-              </footer>
-            </article>
-          ))}
+        <div className="quote-marquee" aria-label="Member testimonials">
+          <div className="quote-grid">
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <article
+                aria-hidden={index >= testimonials.length ? 'true' : undefined}
+                className="quote-card"
+                key={`${testimonial.name}-${index}`}
+              >
+                <p>“{testimonial.quote}”</p>
+                <footer>
+                  <strong>{testimonial.name}</strong>
+                  <span>{testimonial.role}</span>
+                </footer>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
