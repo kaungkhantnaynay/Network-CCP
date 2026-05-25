@@ -9,7 +9,12 @@ import { Testimonials } from './pages/Testimonials'
 import { Contact } from './pages/Contact'
 
 const getCurrentPage = () => {
-  if (window.location.hash === '#programs' || window.location.hash === '#programs-page') {
+  if (
+    window.location.hash === '#programs' ||
+    window.location.hash === '#programs-page' ||
+    window.location.hash.startsWith('#program-track-') ||
+    window.location.hash.startsWith('#program-')
+  ) {
     return 'programs'
   }
 
@@ -45,6 +50,14 @@ const App = () => {
 
   useEffect(() => {
     window.requestAnimationFrame(() => {
+      const hash = window.location.hash
+      const targetElement = hash ? document.getElementById(hash.slice(1)) : null
+
+      if (targetElement && hash.startsWith('#program-')) {
+        targetElement.scrollIntoView({ block: 'start', behavior: 'auto' })
+        return
+      }
+
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     })
   }, [currentPage])

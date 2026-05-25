@@ -12,35 +12,30 @@ const programTracks = [
         title: 'Member Career Planning',
         description:
           'Map target roles, identify skill gaps, and set weekly milestones toward a clear network career path.',
-        outcome: 'Clear role roadmap',
       },
       {
         tag: 'Resume',
         title: 'Resume Key Point Analysis',
         description:
           'Identify missing achievements, weak technical signals, and role-specific keywords before applying.',
-        outcome: 'Sharper positioning',
       },
       {
         tag: 'Resume',
         title: 'Resume Review & Enhancement',
         description:
           'Review structure, ATS readability, technical depth, and recruiter scan quality with improvement strategies.',
-        outcome: 'Cleaner profile',
       },
       {
         tag: 'Resume',
         title: 'Full Resume Update with Founder',
         description:
           'Personalized full rewrite, restructured around impact, technologies, and measurable ownership.',
-        outcome: 'Interview-ready resume',
       },
       {
         tag: 'Applications',
         title: 'Job Portal Application Strategy & Tips',
         description:
           'LinkedIn, JobStreet, Indeed: smarter search patterns, timing, follow-up tactics, and how-to-apply guidance per country.',
-        outcome: 'Higher response rate',
         wide: true,
       },
     ],
@@ -56,21 +51,18 @@ const programTracks = [
         title: 'Interview English Masterclass',
         description:
           'Structured storytelling, professional vocabulary, and concise answers practiced directly with guided feedback.',
-        outcome: 'Confident delivery',
       },
       {
         tag: 'Communication',
         title: 'English for Recruiter Communication',
         description:
           'Email etiquette, phone screening readiness, and professional phrasing when contacting HR teams.',
-        outcome: 'Professional first impression',
       },
       {
         tag: 'HR English',
         title: 'Engaging English for HR Communication',
         description:
           'HR-specific vocabulary, self-introduction scripts, and salary negotiation phrasing for interview flow.',
-        outcome: 'HR-fluent communication',
         wide: true,
       },
     ],
@@ -86,35 +78,30 @@ const programTracks = [
         title: 'Technical Interview Preparation',
         description:
           'Scenario-based questions, whiteboard frameworks, and skills development for network engineering roles.',
-        outcome: 'Problem-solving clarity',
       },
       {
         tag: 'Security',
         title: 'Advanced Network Security',
         description:
           'BGP security, SD-WAN, Zero Trust, and advanced threat concepts for theory and interview preparation.',
-        outcome: 'Security-ready answers',
       },
       {
         tag: 'Firewalls',
         title: 'Firewalls: Theory & Lab',
         description:
           'Palo Alto, Fortinet, Cisco ASA, and Check Point concepts, policy design, and interview Q&A.',
-        outcome: 'Vendor-level depth',
       },
       {
         tag: 'Cybersecurity',
         title: 'Cybersecurity Session: Theory',
         description:
           'SOC principles, threat analysis, and incident response theory for security-adjacent interview roles.',
-        outcome: 'Security theory fluency',
       },
       {
         tag: 'Project Mgmt',
         title: 'IT Project Management Theory Training',
         description:
           'PMBOK basics, Agile in IT environments, stakeholder communication, and leadership language for senior-role interviews.',
-        outcome: 'PM interview confidence',
         wide: true,
       },
     ],
@@ -130,7 +117,6 @@ const programTracks = [
         title: 'Other Network & System Classes',
         description:
           'Supplementary modules such as Linux, cloud basics, scripting, and system administration selected from coaching gaps.',
-        outcome: 'Flexible skill coverage',
         wide: true,
       },
     ],
@@ -147,7 +133,15 @@ const filters = [
 
 const totalPrograms = programTracks.reduce((count, track) => count + track.programs.length, 0)
 
-const getTrackAnchor = (label) => label.toLowerCase().replaceAll(' ', '-').replaceAll('&', 'and')
+const getSlug = (value) =>
+  value
+    .toLowerCase()
+    .replaceAll('&', 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+
+const getTrackAnchor = (label) => `program-track-${getSlug(label)}`
+const getProgramAnchor = (title) => `program-${getSlug(title)}`
 
 const weeklySessions = [
   {
@@ -178,7 +172,10 @@ export function Programs() {
   const sidebarGroups = visibleTracks.map((track) => ({
     label: track.label,
     tone: track.tone,
-    items: track.programs.map((program) => program.title),
+    items: track.programs.map((program) => ({
+      anchor: getProgramAnchor(program.title),
+      title: program.title,
+    })),
   }))
 
   return (
@@ -227,11 +224,11 @@ export function Programs() {
                   className={`programs-sidebar-item ${groupIndex === 0 && itemIndex === 0 ? 'active' : ''} ${
                     group.tone
                   }`}
-                  href={`#${getTrackAnchor(group.label)}`}
-                  key={item}
+                  href={`#${item.anchor}`}
+                  key={item.title}
                 >
                   <span aria-hidden="true" />
-                  {item}
+                  {item.title}
                 </a>
               ))}
             </section>
@@ -252,15 +249,12 @@ export function Programs() {
                   <a
                     className={`program-detail-card ${track.tone} ${program.wide ? 'wide' : ''}`}
                     href="#contact"
+                    id={getProgramAnchor(program.title)}
                     key={program.title}
                   >
                     <span className={`program-card-tag ${track.tone}`}>{program.tag}</span>
                     <h3>{program.title}</h3>
                     <p>{program.description}</p>
-                    <footer>
-                      <strong>{program.outcome}</strong>
-                      <span aria-hidden="true">-&gt;</span>
-                    </footer>
                   </a>
                 ))}
               </div>

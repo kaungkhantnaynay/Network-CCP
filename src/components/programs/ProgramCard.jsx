@@ -8,7 +8,6 @@ export function ProgramCard({ program }) {
         <h3>{program.title}</h3>
       </div>
       <p>{program.summary}</p>
-      <strong>{program.outcome}</strong>
     </article>
   )
 }
