@@ -56,21 +56,39 @@ export function Home() {
   const testimonials = [
     {
       quote:
-        'The resume review made my network experience easier to understand. I finally knew which projects and certifications to highlight.',
-      name: 'Aung Min',
-      role: 'Network Support Candidate',
+        'Network CCP gave me a clear career path for Singapore and helped me prepare my resume, interview English, and technical answers.',
+      name: 'Zon Zon Arkar',
+      role: 'Network Engineer Candidate',
     },
     {
       quote:
-        'Interview practice helped me answer in English with structure instead of memorizing random sentences. That changed my confidence.',
-      name: 'Thiri Htet',
-      role: 'Junior Network Engineer',
+        'The coaching helped me move through difficult interviews and finally receive a Senior Network Engineer offer in Bangkok.',
+      name: 'Leo',
+      role: 'Senior Network Engineer',
     },
     {
       quote:
-        'The weekly technical prep connected CCNA, firewall basics, and real job questions in a way that felt practical for applications.',
-      name: 'Nay Lin',
+        'The program gave me a structured way to apply, improve my resume, and prepare for technical interviews overseas.',
+      name: 'Min Thein Kyaw',
+      role: 'Network Engineer',
+    },
+    {
+      quote:
+        'The guidance is practical, honest, and easy to follow. It builds confidence and gives a clear direction for improvement.',
+      name: 'April Lamin',
       role: 'Security Operations Trainee',
+    },
+    {
+      quote:
+        'A highly recommended program for anyone aiming to work abroad as a Network Engineer or in IT fields.',
+      name: 'Pyae Phyo Maung',
+      role: 'Network Engineer',
+    },
+    {
+      quote:
+        'The teacher’s guidance helped me prepare before, during, and after interviews with much more confidence.',
+      name: 'Thurein',
+      role: 'Helpdesk to Network Track',
     },
   ]
 
@@ -172,11 +190,6 @@ export function Home() {
       splitInstance?.revert()
     }
   }, [])
-
-  const replayCountryReveal = () => {
-    regionSplitTweenRef.current?.timeScale(1).play(0)
-    regionCardsTweenRef.current?.timeScale(1).play(0)
-  }
 
   return (
     <main className="hero-home" id="home">
@@ -287,9 +300,6 @@ export function Home() {
             Network CCP keeps coaching practical by connecting resume, interview, and
             technical preparation to common hiring signals across target markets.
           </p>
-          <button className="region-replay-button" type="button" onClick={replayCountryReveal}>
-            Replay reveal
-          </button>
         </div>
 
         <div className="region-grid">
@@ -316,18 +326,22 @@ export function Home() {
 
         <div className="quote-marquee" aria-label="Member testimonials">
           <div className="quote-grid">
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <article
-                aria-hidden={index >= testimonials.length ? 'true' : undefined}
-                className="quote-card"
-                key={`${testimonial.name}-${index}`}
+            {[0, 1].map((setIndex) => (
+              <div
+                aria-hidden={setIndex === 1 ? 'true' : undefined}
+                className="quote-set"
+                key={`quote-set-${setIndex}`}
               >
-                <p>“{testimonial.quote}”</p>
-                <footer>
-                  <strong>{testimonial.name}</strong>
-                  <span>{testimonial.role}</span>
-                </footer>
-              </article>
+                {testimonials.map((testimonial) => (
+                  <article className="quote-card" key={`${testimonial.name}-${setIndex}`}>
+                    <p>“{testimonial.quote}”</p>
+                    <footer>
+                      <strong>{testimonial.name}</strong>
+                      <span>{testimonial.role}</span>
+                    </footer>
+                  </article>
+                ))}
+              </div>
             ))}
           </div>
         </div>

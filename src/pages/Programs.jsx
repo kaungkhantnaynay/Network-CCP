@@ -261,6 +261,18 @@ export function Programs() {
             </article>
           ))}
 
+          <section className="programs-installment-cta" aria-labelledby="programs-installment-title">
+            <div>
+              <span>Installment Plan</span>
+              <h2 id="programs-installment-title">Join the full program with a flexible payment plan.</h2>
+              <p>
+                The complete Network CCP program costs <strong>500,000 MMK</strong>.
+                Members can also pay in two installments of <strong>250,000 MMK</strong> each.
+              </p>
+            </div>
+            <a href="#contact">Ask About Enrollment</a>
+          </section>
+
           <section className="programs-schedule-cta" aria-labelledby="programs-schedule-title">
             <div>
               <span>Weekly Sessions</span>

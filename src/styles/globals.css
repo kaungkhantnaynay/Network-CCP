@@ -482,35 +482,6 @@ a {
   will-change: opacity, transform;
 }
 
-.region-replay-button {
-  display: inline-flex;
-  width: fit-content;
-  min-height: 38px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.8rem;
-  border: 1px solid rgba(0, 229, 195, 0.28);
-  border-radius: 8px;
-  color: var(--color-teal);
-  background: rgba(0, 229, 195, 0.06);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  cursor: pointer;
-  font-family: "DM Mono", monospace;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
-}
-
-.region-replay-button:hover,
-.region-replay-button:focus-visible {
-  border-color: rgba(0, 229, 195, 0.52);
-  background: rgba(0, 229, 195, 0.1);
-  outline: none;
-  transform: translateY(-1px);
-}
-
 .region-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -648,13 +619,14 @@ a {
   display: flex;
   width: max-content;
   gap: var(--quote-gap);
-  animation: quote-marquee-scroll 42s linear infinite;
+  animation: quote-marquee-scroll 46s linear infinite;
   will-change: transform;
 }
 
-.quote-marquee:hover .quote-grid,
-.quote-marquee:focus-within .quote-grid {
-  animation-play-state: paused;
+.quote-set {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--quote-gap);
 }
 
 @keyframes quote-marquee-scroll {
@@ -1202,6 +1174,77 @@ a {
   color: #8298ad;
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+.programs-installment-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(244, 185, 80, 0.24);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(244, 185, 80, 0.11), transparent 36%),
+    rgba(13, 24, 40, 0.78);
+}
+
+.programs-installment-cta span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--color-amber);
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.programs-installment-cta h2 {
+  max-width: 38rem;
+  margin: 0;
+  color: #f8fbff;
+  font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+  line-height: 1.15;
+}
+
+.programs-installment-cta p {
+  max-width: 44rem;
+  margin: 0.65rem 0 0;
+  color: #afbfce;
+  line-height: 1.65;
+}
+
+.programs-installment-cta strong {
+  color: #f8fbff;
+  font-weight: 800;
+}
+
+.programs-installment-cta a {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.95rem;
+  border: 1px solid rgba(244, 185, 80, 0.32);
+  border-radius: 8px;
+  color: var(--color-amber);
+  background: rgba(244, 185, 80, 0.08);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.programs-installment-cta a:hover,
+.programs-installment-cta a:focus-visible {
+  border-color: rgba(244, 185, 80, 0.56);
+  background: rgba(244, 185, 80, 0.14);
+  color: #f8fbff;
+  outline: none;
 }
 
 .programs-schedule-cta {
@@ -3466,7 +3509,7 @@ a {
   }
 
   .quote-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
   }
 
   .quote-marquee {
@@ -3776,6 +3819,14 @@ a {
     min-height: auto;
   }
 
+  .programs-installment-cta {
+    grid-template-columns: 1fr;
+  }
+
+  .programs-installment-cta a {
+    width: 100%;
+  }
+
   .programs-schedule-cta {
     grid-template-columns: 1fr;
   }
@@ -3847,7 +3898,7 @@ a {
   }
 
   .quote-grid {
-    grid-template-columns: 1fr;
+    display: flex;
   }
 
   .quote-marquee {
@@ -3933,10 +3984,6 @@ a {
   }
 
   .home-cta a {
-    width: 100%;
-  }
-
-  .region-replay-button {
     width: 100%;
   }
 
