@@ -2163,86 +2163,15 @@ a {
   display: inline-flex;
   min-width: max-content;
   align-items: center;
-  gap: 0.75rem;
 }
 
-.brand-mark {
-  position: relative;
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid rgba(212, 212, 212, 0.32);
-  border-radius: 8px;
-  background:
-    linear-gradient(135deg, rgba(8, 13, 20, 0.95), rgba(0, 229, 195, 0.16)),
-    var(--color-charcoal);
-  box-shadow: inset 0 0 0 1px rgba(0, 229, 195, 0.16), 0 0 28px rgba(0, 229, 195, 0.16);
-}
-
-.brand-mark::before,
-.brand-mark::after {
-  position: absolute;
-  content: "";
-  height: 1px;
-  background: rgba(0, 229, 195, 0.8);
-  transform-origin: left center;
-}
-
-.brand-mark::before {
-  width: 18px;
-  transform: rotate(30deg);
-}
-
-.brand-mark::after {
-  width: 20px;
-  transform: rotate(-35deg);
-}
-
-.brand-node {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--color-teal);
-  box-shadow: 0 0 16px rgba(0, 229, 195, 0.78);
-}
-
-.brand-node-a {
-  top: 10px;
-  left: 10px;
-}
-
-.brand-node-b {
-  right: 9px;
-  top: 15px;
-}
-
-.brand-node-c {
-  bottom: 9px;
-  left: 19px;
-}
-
-.brand-name,
-.brand-label {
+.brand-logo {
   display: block;
-  line-height: 1.1;
-}
-
-.brand-name {
-  color: #fafafa;
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.brand-label {
-  margin-top: 0.18rem;
-  color: var(--color-teal);
-  font-size: 0.68rem;
-  font-weight: 700;
-  font-family: "DM Mono", monospace;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  width: clamp(142px, 16vw, 184px);
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+  box-shadow: 0 0 28px rgba(0, 229, 195, 0.12);
 }
 
 .navbar-links {
@@ -3246,83 +3175,15 @@ a {
 .footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
 }
 
-.footer-mark {
-  position: relative;
-  display: grid;
-  width: 44px;
-  height: 44px;
-  place-items: center;
-  border: 1px solid rgba(0, 229, 195, 0.35);
-  border-radius: 8px;
-  background:
-    linear-gradient(135deg, rgba(8, 13, 20, 0.95), rgba(0, 229, 195, 0.16)),
-    var(--color-charcoal);
-  box-shadow: inset 0 0 0 1px rgba(0, 229, 195, 0.16), 0 0 28px rgba(0, 229, 195, 0.16);
-}
-
-.footer-mark::before,
-.footer-mark::after {
-  position: absolute;
-  content: "";
-  width: 22px;
-  height: 1px;
-  background: rgba(0, 229, 195, 0.72);
-  transform-origin: center;
-}
-
-.footer-mark::before {
-  transform: rotate(34deg);
-}
-
-.footer-mark::after {
-  transform: rotate(-34deg);
-}
-
-.footer-mark span {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--color-teal);
-  box-shadow: 0 0 14px rgba(0, 229, 195, 0.56);
-}
-
-.footer-mark span:nth-child(1) {
-  top: 11px;
-  left: 10px;
-}
-
-.footer-mark span:nth-child(2) {
-  top: 17px;
-  right: 10px;
-}
-
-.footer-mark span:nth-child(3) {
-  bottom: 10px;
-  left: 19px;
-}
-
-.footer-brand-name,
-.footer-brand-kicker {
+.footer-brand-logo {
   display: block;
-  line-height: 1.12;
-}
-
-.footer-brand-name {
-  color: #fafafa;
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.footer-brand-kicker {
-  margin-top: 0.22rem;
-  color: var(--color-teal);
-  font-family: "DM Mono", monospace;
-  font-size: 0.76rem;
-  font-weight: 650;
+  width: min(100%, 230px);
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 229, 195, 0.12);
 }
 
 .footer-brand-panel p {
@@ -4082,19 +3943,8 @@ a {
     gap: 0.75rem;
   }
 
-  .brand-mark {
-    width: 38px;
-    height: 38px;
-  }
-
-  .brand-name {
-    font-size: 0.95rem;
-  }
-
-  .brand-label {
-    max-width: 148px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .brand-logo {
+    width: 136px;
   }
 
   .navbar-socials a {
@@ -4126,8 +3976,8 @@ a {
     align-items: flex-start;
   }
 
-  .footer-brand-kicker {
-    max-width: 14rem;
+  .footer-brand-logo {
+    width: min(100%, 204px);
   }
 
   .footer-brand-panel p {

@@ -17,10 +17,10 @@ function SocialIcon({ name }) {
     )
   }
 
-  if (name === 'YouTube') {
+  if (name === 'TikTok') {
     return (
       <svg aria-hidden="true" viewBox="0 0 24 24">
-        <path d="M21.4 7.4a3 3 0 0 0-2.1-2.1C17.4 4.8 12 4.8 12 4.8s-5.4 0-7.3.5a3 3 0 0 0-2.1 2.1A31.2 31.2 0 0 0 2.1 12c0 1.6.1 3.1.5 4.6a3 3 0 0 0 2.1 2.1c1.9.5 7.3.5 7.3.5s5.4 0 7.3-.5a3 3 0 0 0 2.1-2.1c.4-1.5.5-3 .5-4.6s-.1-3.1-.5-4.6ZM10 15.4V8.6l5.8 3.4-5.8 3.4Z" />
+        <path d="M15.5 3c.3 2.2 1.5 3.7 3.6 3.9v3.1a6.7 6.7 0 0 1-3.5-1.1v5.8c0 3-2 5.3-5.1 5.3A5.2 5.2 0 0 1 5.3 15c0-3.3 2.7-5.7 6-5.1v3.2c-1.4-.4-2.9.5-2.9 2 0 1.1.9 2 2 2 1.3 0 2.1-.8 2.1-2.4V3h3Z" />
       </svg>
     )
   }
@@ -42,10 +42,10 @@ export function Navbar({ currentPage = 'home' }) {
     { label: 'Contact us', href: '#contact', page: 'contact' },
   ]
   const socialLinks = [
-    { label: 'Facebook', href: 'https://facebook.com/networkccp' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/network-ccp' },
-    { label: 'YouTube', href: 'https://www.youtube.com/@networkccp' },
-    { label: 'Telegram', href: 'https://t.me/networkccp' },
+    { label: 'Facebook', href: 'https://www.facebook.com/share/1UvPTUapb1/?mibextid=wwXIfr' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arkar-min-network-career-coach-83a891327?utm_source=share_via&utm_content=profile&utm_medium=member_ios' },
+    { label: 'TikTok', href: 'https://www.tiktok.com/@arkarcareercoach?_r=1&_t=ZS-96gIuQlSC8N' },
+    { label: 'Telegram', href: 'https://t.me/+KURjaV7aMXRlN2Jl' },
   ]
 
   const handleHomeClick = (event) => {
@@ -61,15 +61,7 @@ export function Navbar({ currentPage = 'home' }) {
       <div className="navbar-grid" aria-hidden="true" />
       <nav className="navbar-shell" aria-label="Primary navigation">
         <a className="navbar-brand" href="/" aria-label="Network CCP home" onClick={handleHomeClick}>
-          <span className="brand-mark" aria-hidden="true">
-            <span className="brand-node brand-node-a" />
-            <span className="brand-node brand-node-b" />
-            <span className="brand-node brand-node-c" />
-          </span>
-          <span>
-            <span className="brand-name">Network CCP</span>
-            <span className="brand-label">Career Command Center</span>
-          </span>
+          <img className="brand-logo" src="/NCCP-Logo.jpg" alt="Network CCP" />
         </a>
 
         <button

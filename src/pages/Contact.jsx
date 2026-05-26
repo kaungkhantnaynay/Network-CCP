@@ -42,13 +42,23 @@ const mailtoLink =
 const socialLinks = [
   {
     label: 'Facebook',
-    href: 'https://facebook.com/networkccp',
+    href: 'https://www.facebook.com/share/1UvPTUapb1/?mibextid=wwXIfr',
     icon: 'facebook',
   },
   {
     label: 'TikTok',
-    href: 'https://www.tiktok.com/@networkccp',
+    href: 'https://www.tiktok.com/@arkarcareercoach?_r=1&_t=ZS-96gIuQlSC8N',
     icon: 'tiktok',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/arkar-min-network-career-coach-83a891327?utm_source=share_via&utm_content=profile&utm_medium=member_ios',
+    icon: 'linkedin',
+  },
+  {
+    label: 'Telegram',
+    href: 'https://t.me/+KURjaV7aMXRlN2Jl',
+    icon: 'telegram',
   },
 ]
 
@@ -57,6 +67,22 @@ function SocialIcon({ type }) {
     return (
       <svg aria-hidden="true" viewBox="0 0 24 24">
         <path d="M14.5 8.2V6.7c0-.7.5-1.1 1.2-1.1h1.5V3h-2.3c-2.6 0-4 1.6-4 4v1.2H8.8v2.9h2.1V21h3.1v-9.9h2.6l.4-2.9h-3Z" />
+      </svg>
+    )
+  }
+
+  if (type === 'linkedin') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M6.7 8.8H3.3V20h3.4V8.8ZM5 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm15.7 9.7c0-3.4-1.8-5.2-4.4-5.2-1.8 0-2.8 1-3.3 1.8V8.8H9.7V20H13v-5.9c0-1.6.8-2.5 2.1-2.5s2.1.9 2.1 2.5V20h3.5v-6.3Z" />
+      </svg>
+    )
+  }
+
+  if (type === 'telegram') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M21.7 4.3 18.5 20c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.3L5.8 13.4.8 11.8c-1.1-.3-1.1-1.1.2-1.6L20.4 2.7c.9-.3 1.7.2 1.3 1.6Z" />
       </svg>
     )
   }

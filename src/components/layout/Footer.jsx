@@ -40,10 +40,10 @@ export function Footer() {
     },
   ]
   const socialLinks = [
-    { label: 'Facebook', href: 'https://facebook.com/networkccp' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/network-ccp' },
-    { label: 'YouTube', href: 'https://www.youtube.com/@networkccp' },
-    { label: 'Telegram', href: 'https://t.me/networkccp' },
+    { label: 'Facebook', href: 'https://www.facebook.com/share/1UvPTUapb1/?mibextid=wwXIfr' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arkar-min-network-career-coach-83a891327?utm_source=share_via&utm_content=profile&utm_medium=member_ios' },
+    { label: 'TikTok', href: 'https://www.tiktok.com/@arkarcareercoach?_r=1&_t=ZS-96gIuQlSC8N' },
+    { label: 'Telegram', href: 'https://t.me/+KURjaV7aMXRlN2Jl' },
   ]
 
   return (
@@ -51,15 +51,7 @@ export function Footer() {
       <div className="footer-surface">
         <div className="footer-brand-panel">
           <a className="footer-brand" href="/" aria-label="Network CCP home" onClick={handleHomeClick}>
-            <span className="footer-mark" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </span>
-            <span>
-              <span className="footer-brand-name">Network CCP</span>
-              <span className="footer-brand-kicker">Career coaching for network professionals</span>
-            </span>
+            <img className="footer-brand-logo" src="/NCCP-Logo.jpg" alt="Network CCP" />
           </a>
           <p>
             A focused coaching and technical preparation program for members building
