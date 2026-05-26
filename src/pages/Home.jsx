@@ -198,8 +198,7 @@ export function Home() {
           <span className="network-kicker">Network Career Coaching Program</span>
           <h1 id="network-hero-title">Build your network career with a clearer plan.</h1>
           <p>
-            A focused coaching path for resumes, job applications, interview English,
-            and practical network/security preparation.
+            A targeted coaching curriculum designed to enhance resumes, streamline job applications, master interview English, and build hands-on expertise in networking and security.
           </p>
         </div>
 
