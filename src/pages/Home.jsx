@@ -224,7 +224,7 @@ export function Home() {
 
         <div className="credential-strip" aria-label="Network CCP credentials">
           <div>
-            <strong>400+</strong>
+            <strong>350+</strong>
             <span>Active Members</span>
           </div>
           <div>

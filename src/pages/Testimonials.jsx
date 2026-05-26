@@ -1,5 +1,18 @@
 import { testimonials } from '../data/testimonials'
 
+const videoTestimonials = [
+  {
+    title: 'Member video testimonial',
+    source: 'Facebook',
+    href: 'https://web.facebook.com/share/v/18mxF7X6No/',
+  },
+  {
+    title: 'Member video testimonial',
+    source: 'Facebook',
+    href: 'https://web.facebook.com/share/v/1LAaWNEuD7/',
+  },
+]
+
 export function Testimonials() {
   return (
     <main className="testimonials-page" id="testimonials-page">
@@ -33,6 +46,29 @@ export function Testimonials() {
             </article>
           )
         })}
+      </section>
+
+      <section className="testimonial-videos" aria-labelledby="testimonial-videos-title">
+        <div className="testimonial-videos-header">
+          <span>Video Testimonials</span>
+          <h2 id="testimonial-videos-title">Watch member stories on Facebook.</h2>
+        </div>
+        <div className="testimonial-video-grid">
+          {videoTestimonials.map((video) => (
+            <article className="testimonial-video-card" key={video.href}>
+              <div className="testimonial-video-preview" aria-hidden="true">
+                <span />
+              </div>
+              <div>
+                <span>{video.source}</span>
+                <h3>{video.title}</h3>
+                <a href={video.href} rel="noreferrer" target="_blank">
+                  Watch video
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="testimonials-cta" aria-labelledby="testimonials-cta-title">

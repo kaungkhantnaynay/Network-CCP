@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 // ─── Static Data ──────────────────────────────────────────────────────────────
 
 const STATS = [
-  { label: "Members Trained", value: 340, suffix: "+" },
+  { label: "Members Trained", value: 400, suffix: "+" },
   { label: "Cert Pass Rate", value: 94, suffix: "%" },
   { label: "Avg Salary Lift", value: 42, suffix: "%" },
   { label: "Industry Partners", value: 18, suffix: "" },
